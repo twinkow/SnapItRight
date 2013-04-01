@@ -1,0 +1,48 @@
+.modal {
+ 	width: 9cm;
+ 	height: 8cm;
+ 	position: absolute;
+ 		left: 12cm;
+ 		top: 7cm;
+}
+
+.modal-header {
+	height: 1.2cm;
+}
+
+.modal-body {
+	height: 4cm;
+}
+
+.modal-close-button {
+	position: absolute;
+		left: 6cm;
+		top: 3cm;
+}
+
+.img-pos {
+	width: 0.8cm;
+	height: 0.8cm;
+}
+
+/*Ajuda*/
+
+.helpImage{
+	position: absolute;
+		top: 3.02cm;
+		left: 5cm;
+}
+.exitHelpButton{
+	width: 2.5cm;
+	height: 1.5cm;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	position: absolute;
+		left: 12.5cm;
+		top: 0.67cm;
+}
+
+.helpImage2{
+	position: absolute;
+		top: 3.02cm;
+		left: 5cm;
+}

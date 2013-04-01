@@ -1,0 +1,193 @@
+.photos-button {
+	height: 1.55cm;
+	width: 2.8cm;
+	position:absolute;
+		left:0cm;
+		top:0cm;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: medium;
+}
+
+.albuns-button {
+	height: 1.55cm;
+	width: 2.8cm;
+	position:absolute;
+		left:0cm;
+		top:1.5cm;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: medium;
+}
+
+.animations-button {
+	height: 1.55cm;
+	width: 2.8cm;
+	position:absolute;
+		left:0cm;
+		top:3cm;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: medium;
+}
+
+.postcards-button {
+	height: 1.55cm;
+	width: 2.8cm;
+	position:absolute;
+		left:0cm;
+		top:4.5cm;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: medium;
+}
+
+.friends-button{
+	height: 1.55cm;
+	width: 2.8cm;
+	position:absolute;
+		left:0cm;
+		top:6cm;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: medium;
+}
+
+.shares-button{
+	height: 1.55cm;
+	width: 2.8cm;
+	position:absolute;
+		left:0cm;
+		top:7.5cm;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-weight:bold;
+	font-size: medium;
+}
+
+
+.add-button {
+	position: absolute;
+		left:3.2cm;
+		top:7.9cm;
+}
+
+.edit-button {
+	position: absolute;
+		left: 4.65cm;
+		top:7.9cm;
+}
+
+.organize-button {
+	position: absolute;
+		left:6.18cm;
+		top:7.9cm;
+}
+
+.share-button {
+	position: absolute;
+		left:7.9cm;
+		top:7.9cm;
+}
+
+.info-button {
+	position: absolute;
+		left:9.49cm;
+		top: 7.9cm;
+}
+
+.help-button {
+	width: 1cm;
+	position: absolute;
+		left:13.1cm;
+		top:7.9cm;
+}
+
+.exit-button {
+	position: absolute;
+		left:14.6cm;
+		top:7.9cm; 
+}
+
+.add-button-text {
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-size: 0.3cm;
+	position: absolute;
+		left: 3.15cm;
+		top:8.5cm;
+}
+
+.edit-button-text {
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-size: 0.3cm;
+	position: absolute;
+		left:4.91cm;
+		top: 8.5cm;
+}
+
+.organize-button-text {
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-size: 0.3cm;
+	position: absolute;
+		left:6.2cm;
+		top: 8.5cm;
+}
+
+.share-button-text {
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-size: 0.3cm;
+	position: absolute;
+		left:7.89cm;
+		top: 8.5cm;
+}
+
+.info-button-text {
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-size: 0.3cm;
+	position: absolute;
+		left:9.77cm;
+		top: 8.5cm;
+}
+
+.help-button-text {
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-size: 0.3cm;
+	position: absolute;
+		left:13.245cm;
+		top: 8.5cm;
+}
+
+.exit-button-text {
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-size: 0.3cm;
+	position: absolute;
+		left:14.9cm;
+		top: 8.5cm;
+}
+
+.btn-size {
+  line-height: 1px;
+}
+
+.i1st-image-caret-button {
+	position: absolute;
+		left:5.2cm;
+		top: 3cm;
+}
+
+.i2nd-image-caret-button {
+	position: absolute;
+		left:10.7cm;
+		top: 3cm;
+}
+
+.i3rd-image-caret-button {
+	position: absolute;
+		left:5.1cm;
+		top: 6.5cm;
+}
+
+.i4th-image-caret-button {
+	position: absolute;
+		left:10.7cm;
+		top: 6.5cm;
+}

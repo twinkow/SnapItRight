@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>SnapItRight!</title>
+      <html lang="pt-pt">
+      <meta charset="utf-8" />
+      <!-- Bootstrap -->
+
+      <!-- Le styles -->
+      <link href="bootstrap/docs/assets/css/bootstrap.css" rel="stylesheet">
+      <link href="bootstrap/docs/assets/css/bootstrap-responsive.css" rel="stylesheet">
+      <!--<link href="bootstrap/docs/assets/css/docs.css" rel="stylesheet">-->    
+      <link href="bootstrap/docs/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+      <link href="mycss/mycss.css" rel="stylesheet">
+      <link href="mycss/buttons.css" rel="stylesheet">
+      <link href="mycss/sidebar.css" rel="stylesheet">
+      <link href="mycss/keyboard.css" rel="stylesheet">
+      <link href="mycss/modal.css" rel="stylesheet">
+      <link href="mycss/simplePagination.css" rel="stylesheet">
+      <link href="mycss/rating.css" rel="stylesheet">
+
+      <!-- Le javascript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="bootstrap/docs/assets/js/jquery.js"></script>
+      <script src="bootstrap/docs/assets/js/google-code-prettify/prettify.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-transition.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-alert.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-modal.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-dropdown.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-scrollspy.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-tab.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-tooltip.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-popover.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-button.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-collapse.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-carousel.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-typeahead.js"></script>
+      <script src="bootstrap/docs/assets/js/bootstrap-affix.js"></script>
+      <script src="bootstrap/docs/assets/js/application.js"></script>
+      <script src="snapitright.js"></script>
+      <script src="js/jquery.simplePagination.js"></script>
+      
+      <!-- Keyboard Javascript-->
+      <script src="js/vkeyboard.js"></script>
+      <script src="js/jquery-fieldselection.js"></script>
+      <script src="js/jquery-ui-personalized-1.5.2.min.js"></script>
+
+  </head>
+  
+  <body onLoad="toggleExitPic(), resetState(), createAllMenus(), menu('photos'), changeButtonColor('photosB')">
+
+    <h1 class="titleApp">-- Aplicação SnapItRight -- </h1>
+
+    <section class="total-window">
+
+      <div class="backup-div hide"></div>
+
+      <!-- Modal da lista de fotografias (add new photo) -->
+      <div id="my-photos-modal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="my-modalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <h4 id="my-modalLabel">Selecione a fotografia que pretende adicionar:</h4>
+        </div>
+
+        <div id="first-level-photos-list" class="modal-body" >
+         <ul class="nav nav-pills nav-stacked">
+            <li id="AveiroPic">
+              <a href="#" onClick="setContentSelectedVariable('Aveiro'), confirmModalSelection('#my-photos-modal')">
+                  <img src="images/aveiro.jpg" class="img-pos"> Aveiro </img> 
+              </a>
+            </li>
+
+            <li id="BarcelonaPic">
+              <a href="#" onClick="setContentSelectedVariable('Barcelona'), confirmModalSelection('#my-photos-modal')">
+                <img src="images/barcelona.jpg" class="img-pos"> Barcelona</img>
+              </a>
+            </li>
+
+            <li id="BilbauPic">
+              <a href="#" onClick=" setContentSelectedVariable('Bilbau'), confirmModalSelection('#my-photos-modal')">
+                <img src="images/bilbau.jpg" class="img-pos"> Bilbau</img>
+              </a>
+            </li>
+
+            <li id="DortmundPic">
+              <a href="#" onClick="setContentSelectedVariable('Dortmund'), confirmModalSelection('#my-photos-modal')">
+                <img src="images/dortmund.jpg" class="img-pos"> Dortmund</img>
+              </a>
+            </li>
+
+            <li id="FaroPic">
+              <a href="#" onClick="setContentSelectedVariable('Faro'), confirmModalSelection('#my-photos-modal')">
+                <img src="images/faro.jpg" class="img-pos"> Faro </img>
+              </a>
+            </li>
+
+            <li id="FrankfurtPic">
+              <a href="#" onClick="setContentSelectedVariable('Frankfurt'), confirmModalSelection('#my-photos-modal')">
+                <img src="images/frankfurt.jpg" class="img-pos"> Frankfurt</img>
+              </a>
+            </li>
+
+            <li id="LillePic">
+              <a href="#" onClick="setContentSelectedVariable('Lille'), confirmModalSelection('#my-photos-modal')">
+                <img src="images/lille.jpg" class="img-pos"> Lille</img>
+              </a>
+            </li>
+
+            <li id="LisboaPic">
+              <a href="#" onClick="setContentSelectedVariable('Lisboa'), confirmModalSelection('#my-photos-modal')">
+                <img src="images/lisboa.jpg" class="img-pos"> Lisboa</img>
+              </a>
+            </li>
+
+            <li id="PortoPic">
+              <a href="#" onClick="setContentSelectedVariable('Porto'), confirmModalSelection('#my-photos-modal')">
+                <img src="images/porto.jpg" class="img-pos"> Porto</img>
+              </a>
+            </li>
+
+            <li id="TorreEiffel">
+              <a href="#" onClick="setContentSelectedVariable('TorreEiffel'), confirmModalSelection('#my-photos-modal')">
+                <img src="images/torreeiffel.jpg" class="img-pos"> Torre Eiffel</img>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="first-level-photos-footer" class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancelar
+          </button>
+        </div>
+      </div>
+
+       <!-- Modal da lista de álbuns/fotografias (ex->animations)-->
+      <div id="my-albumPhotoList-modal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="my-modalLabel" aria-hidden="true">
+        <div id= "title" class="modal-header">
+          <h4 id="my-modalLabel">Selecione a fotografia que pretende animar:</h4>
+        </div>
+
+        <div id="first-level-albumPhotoList-list" class="modal-body">
+          <ul id="navigation" class="nav nav-pills nav-stacked">
+            <li>
+              <a onClick="setModalAlbum('germanyAlbum'),enterInsideModalMenu('albumPhotoList')" href="#">
+                  <img src="images/flagGermany.jpg" class="img-pos"> Álbum Alemanha </img> 
+              </a>
+            </li>
+
+            <li>
+              <a onClick="setModalAlbum('spainAlbum'),enterInsideModalMenu('albumPhotoList')" href="#">
+                <img src="images/flagSpain.jpg" class="img-pos"> Álbum Espanha</a>
+            </li>
+
+            <li>
+              <a onClick="setModalAlbum('franceAlbum'),enterInsideModalMenu('albumPhotoList')" href="#">
+                <img src="images/flagFrance.jpg" class="img-pos"> Álbum França</a>
+            </li>
+
+            <li>
+              <a onClick="setModalAlbum('portugalAlbum'),enterInsideModalMenu('albumPhotoList')" href="#">
+                <img src="images/flagPortugal.jpg" class="img-pos"> Álbum Portugal</a>
+            </li>
+						<!-- As fotos soltas estão a ser inseridas em execução -->
+          </ul>
+        </div>
+
+        <div id="second-level-albumPhotoList-list" class="modal-body" style="display: none">
+          <ul id="navigation" class="nav nav-pills nav-stacked">
+					<!-- Fotos estao a ser inseridas em execuçao-->
+          </ul>
+        </div>
+
+        <div id="first-level-albumPhotoList-footer" class="modal-footer">
+          <button type="button" class="btn" onClick="hideModal('#my-albumPhotoList-modal')"  aria-hidden="true">Cancelar
+          </button>
+        </div>
+
+        <div id="second-level-albumPhotoList-footer" class="modal-footer" style="display: none">
+          <button onClick="backButton('albumPhotoList')" type="button" class="btn" aria-hidden="true">
+            Retroceder
+          </button>
+
+          <button type="button" class="btn" onClick="hideModal('#my-albumPhotoList-modal')" aria-hidden="true">Cancelar
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal da lista de Amigos --> 
+      <div id="my-friends-modal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="my-modalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <h4 id="my-modalLabel">Selecione o amigos com quem deseja partilhar a fotografia:</h4>
+        </div>
+    
+        <div id="first-level-friends-list" class="modal-body" >
+          <ul class="nav nav-pills nav-stacked">
+            <li>
+              <a onClick=" setFriendforShare('Maria'),confirmModalSelection('#my-friends-modal')">Maria</a>
+             </li>
+
+            <li>
+              <a onClick="  setFriendforShare('Zé Povinho'),confirmModalSelection('#my-friends-modal')">Zé Povinho</a>
+            </li>
+
+            <li>
+              <a onClick="  setFriendforShare('Manuel'),confirmModalSelection('#my-friends-modal')">Manuel</a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="first-level-friends-footer" class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancelar
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal da lista de fotografias (Add Photo to Album) -->
+      <div id="my-photolist-modal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="my-modalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <h4 id="my-modalLabel">Selecione a fotografia que pretende adicionar ao álbum:</h4>
+        </div>
+
+        <div id="first-level-photolist-list" class="modal-body" >
+         <ul id= "navigation" class="nav nav-pills nav-stacked">
+            
+            <li>
+              <a href="#" onClick="setContentSelectedVariable('Dusseldorf'), confirmModalSelection('#my-photolist-modal')">
+                <img src="images/dusseldorf.jpg" class="img-pos"> Dusseldorf</img>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" onClick="setContentSelectedVariable('Indignados'), confirmModalSelection('#my-photolist-modal')">
+                <img src="images/indignados.jpg" class="img-pos">Indignados</img>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" onClick="setContentSelectedVariable('Lyon'), confirmModalSelection('#my-photolist-modal')">
+                <img src="images/lyon.jpg" class="img-pos"> Lyon</img>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" onClick="setContentSelectedVariable('Madrid'), confirmModalSelection('#my-photolist-modal')">
+                <img src="images/madrid.jpg" class="img-pos">Madrid</img>
+              </a>
+            </li>
+            
+            <li>
+              <a href="#" onClick="setContentSelectedVariable('Marselha'), confirmModalSelection('#my-photolist-modal')">
+                <img src="images/marselha.jpg" class="img-pos"> Marselha</img>
+              </a>
+            </li>            
+
+            <li>
+              <a href="#" onClick="setContentSelectedVariable('Munique'), confirmModalSelection('#my-photolist-modal')">
+                  <img src="images/munique.jpg" class="img-pos"> Munique </img> 
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="first-level-photolist-footer" class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancelar
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal da lista de álbuns (Add Photo to Album) -->
+      <div id="my-albumlist-modal" class="modal hide" role="dialog" aria-labelledby="my-modalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <h4 id="my-modalLabel">Selecione o álbum ao qual pretende adicionar a fotografia:</h4>
+        </div>
+
+        <div id="first-level-albumlist-list" class="modal-body">
+          <ul class="nav nav-pills nav-stacked">
+            <li>
+              <a onClick="setContentSelectedVariable('germanyAlbum'), confirmModalSelection('#my-albumlist-modal')" href="#">
+                  <img src="images/flagGermany.jpg" class="img-pos"> Álbum Alemanha </img> 
+              </a>
+            </li>
+
+            <li>
+              <a onClick="setContentSelectedVariable('spainAlbum'), confirmModalSelection('#my-albumlist-modal')" href="#">
+                <img src="images/flagSpain.jpg" class="img-pos"> Álbum Espanha
+              </a>
+            </li>
+
+            <li>
+              <a onClick="setContentSelectedVariable('franceAlbum'), confirmModalSelection('#my-albumlist-modal')" href="#">
+                <img src="images/flagFrance.jpg" class="img-pos"> Álbum França
+              </a>
+            </li>
+
+            <li>
+              <a onClick="setContentSelectedVariable('portugalAlbum'), confirmModalSelection('#my-albumlist-modal')" href="#">
+                <img src="images/flagPortugal.jpg" class="img-pos"> Álbum Portugal
+              </a>
+            </li>
+          </ul>
+        </div>    
+
+        <div id="first-level-albumlist-footer" class="modal-footer">
+          <button type="button" class="btn" data-dismiss="modal" aria-hidden="true">Cancelar
+          </button>
+        </div>
+      </div>
+
+      <!-- Caixas de Alerta (depois de operação) -->
+      <div id="my-success-alert-animations" class="alert success-alert alert-success my-modal hide">
+        <h4 class="alert-heading">A animação foi adicionada com sucesso!</h4>
+        <button id="success-button"type="button" class="btn btn-success" onClick="hideBox('#my-success-alert-animations')">OK</button>
+      </div>
+
+      <div id="my-alert-animations" class="alert alert-block fade in my-modal hide">
+        <button type="button" class="close" onClick="hideBox('#my-alert-animations')">×</button>
+        <h4 class="alert-heading">Deseja confirmar a operação? </h4> 
+        <p></p>
+        <p>
+          <a class="btn btn-success" href="#" onClick="alertProcessor('my-alert-animations','confirmar','animations')">Sim</a>
+          <a class="btn btn-danger" href="#" onClick="alertProcessor('my-alert-animations','cancelar', 'animations')">Não</a> 
+        </p> 
+      </div>
+
+      <!-- Caixas de Alerta (depois de operação) -->
+      <div id="my-success-alert-edition" class="alert success-alert alert-success my-modal hide">
+        <h4 class="alert-heading">A edição foi efectuada com sucesso!</h4>
+        <button id="success-button"type="button" class="btn btn-success" onClick="hideBox('#my-success-alert-edition')">OK</button>
+      </div>
+
+      <div id="my-alert-edition" class="alert alert-block fade in my-modal hide">
+        <button type="button" class="close" onClick="hideBox('#my-alert-edition')">×</button>
+        <h4 class="alert-heading">Deseja confirmar a operação? </h4> 
+        <p></p>
+        <p>
+          <a class="btn btn-success" href="#" onClick="alertProcessor('my-alert-edition','confirmar','edition')">Sim</a>
+          <a class="btn btn-danger" href="#" onClick="alertProcessor('my-alert-edition','cancelar','edition')">Não</a> 
+        </p> 
+      </div>
+
+      <!-- Caixas de Alerta (depois de operação) -->
+      <div id="my-success-alert-postcard" class="alert success-alert alert-success my-modal hide">
+        <h4 class="alert-heading">O postal foi adicionado com sucesso!</h4>
+        <button id="success-button"type="button" class="btn btn-success" onClick="hideBox('#my-success-alert-postcard')">OK</button>
+      </div>
+
+      <div id="my-alert-postcard" class="alert alert-block fade in my-modal hide">
+       <button type="button" class="close" onClick="hideBox('#my-alert-postcard')">×</button>
+       <h4 class="alert-heading">Deseja confirmar a operação? </h4> 
+        <p></p>
+        <p>
+          <a class="btn btn-success" href="#" onClick="alertProcessor('my-alert-postcard','confirmar','postcards')">Sim</a>
+          <a class="btn btn-danger" href="#" onClick="alertProcessor('my-alert-postcard','cancelar','postcards')">Não</a> 
+        </p> 
+      </div>
+
+      <!-- Caixas de Alerta (depois de operação) -->
+      <div id="my-success-alert-share" class="alert success-alert alert-success my-modal hide">
+        <h4 class="alert-heading">A partilha foi efectuada com sucesso!</h4>
+        <button id="success-button"type="button" class="btn btn-success" onClick="hideBox('#my-success-alert-share')">OK</button>
+      </div>
+
+      <div id="my-alert-share" class="alert alert-block fade in my-modal hide">
+        <button type="button" class="close" onClick="hideBox('#my-alert-share')">×</button>
+        <h4 class="alert-heading">Deseja confirmar a operação? </h4> 
+        <p></p>
+        <p>
+          <a class="btn btn-success" href="#" onClick="alertProcessor('my-alert-share','confirmar','share')">Sim</a>
+          <a class="btn btn-danger" href="#" onClick="alertProcessor('my-alert-share','cancelar','share')">Não</a> 
+        </p> 
+      </div>
+
+      <!-- Alerta Seguinte -->
+      <div id="my-success-alert-photolist" class="alert success-alert alert-success my-modal hide">
+        <h4 class="alert-heading">A fotografia foi adicionada ao álbum com sucesso!</h4>
+        <button id="success-button"type="button" class="btn btn-success" onClick="hideBox('#my-success-alert-photolist')">OK</button>
+      </div>
+    
+      <div id="my-alert-photolist" class="alert alert-block fade in my-modal hide">
+       <button type="button" class="close" onClick="hideBox('#my-alert-photolist')">×</button>
+       <h4 class="alert-heading">Deseja confirmar a operação? </h4> 
+        <p></p>
+        <p>
+          <a class="btn btn-success" href="#" onClick="alertProcessor('my-alert-photolist', 'confirmar', 'photolist')">Sim</a>
+          <a class="btn btn-danger" href="#" onClick="alertProcessor('my-alert-photolist','cancelar', 'photolist')">Não</a> 
+        </p> 
+      </div>
+
+      <!-- Alerta Seguinte -->
+      <div id="my-success-alert-albumlist" class="alert success-alert alert-success my-modal hide">
+        <h4 class="alert-heading">A fotografia foi adicionada ao álbum com sucesso!</h4>
+        <button id="success-button"type="button" class="btn btn-success" onClick="hideBox('#my-success-alert-albumlist')">OK</button>
+      </div>
+    
+      <div id="my-alert-albumlist" class="alert alert-block fade in my-modal hide">
+       <button type="button" class="close" onClick="hideBox('#my-alert-albumlist')">×</button>
+       <h4 class="alert-heading">Deseja confirmar a operação? </h4> 
+        <p></p>
+        <p>
+          <a class="btn btn-success" href="#" onClick="alertProcessor('my-alert-albumlist', 'confirmar', 'albumlist')">Sim</a>
+          <a class="btn btn-danger" href="#" onClick="alertProcessor('my-alert-albumlist','cancelar', 'albumlist')">Não</a> 
+        </p> 
+      </div>
+      
+      <!-- Alerta Seguinte -->
+      <div id="my-success-alert-importphoto" class="alert success-alert alert-success my-modal hide">
+        <h4 class="alert-heading">A fotografia foi adicionada à aplicação com sucesso!</h4>
+        <button id="success-button"type="button" class="btn btn-success" onClick="hideBox('#my-success-alert-importphoto')">OK</button>
+      </div>
+    
+      <div id="my-alert-importphoto" class="alert alert-block fade in my-modal hide">
+       <button type="button" class="close" onClick="hideBox('#my-alert-importphoto')">×</button>
+       <h4 class="alert-heading">Deseja confirmar a operação? </h4> 
+        <p></p>
+        <p>
+          <a class="btn btn-success" href="#" onClick="alertProcessor('my-alert-importphoto', 'confirmar', 'importphoto'),removePhotoFromModal()">Sim</a>
+          <a class="btn btn-danger" href="#" onClick="alertProcessor('my-alert-importphoto','cancelar', 'importphoto')">Não</a> 
+        </p> 
+      </div>
+
+      <!-- Alerta Seguinte -->
+      <div id="my-warning-alert-albumlist" class="alert success-alert my-modal hide">
+        <button id="button-warning" type="button" class="close" onClick="hideBox('#my-warning-alert-albumlist')">x</button>
+        <strong>Aviso!</strong> Precisa de seleccionar uma <b>fotografia</b> ou um <b>álbum</b>.
+        <button id="success-button"type="button" class="btn btn-warning" onClick="hideBox('#my-warning-alert-albumlist')">OK</button>
+      </div>
+     
+      <!-- Alerta Seguinte -->
+      <div id="my-alert-exit" class="alert success-alert fade in my-modal hide">
+        <button type="button" class="close" onClick="hideBox('#my-alert-exit')">×</button>
+        <h4 class="alert-heading">Deseja sair da aplicação? </h4> 
+          <p>
+            <a class="btn btn-success" href="#" onClick="executeExitReq('my-alert-exit','confirmar')">Sim</a>
+            <a class="btn btn-danger" href="#" onClick="executeExitReq('my-alert-exit','cancelar')">Não</a> 
+          </p> 
+      </div>
+     
+      <!-- Alerta Seguinte -->
+      <div id="my-warning-notWorking" class="alert success-alert my-modal hide">
+        <button id="button-warning" type="button" class="close" onClick="hideBox('#my-warning-notWorking')">x</button>
+        <strong>Aviso!</strong> Esta funcionalidade ainda não está implementada.
+         <button id="success-button"type="button" class="btn btn-warning" onClick="hideBox('#my-warning-notWorking')">OK</button>
+      </div>
+
+      <!-- Alerta BetaVersion -->
+      <div id="beta-version-photo-alert" class="alert success-alert my-modal hide">
+        <button id="button-warning" type="button" class="close" onClick="hideBox('#beta-version-photo-alert')">x</button>
+        <strong>Beta Version!</strong> Não é possivel adicionar mais fotografias.
+         <button id="success-button"type="button" class="btn btn-warning" onClick="hideBox('#beta-version-photo-alert')">OK</button>
+      </div>
+
+      <!-- Alerta BetaVersion -->
+      <div id="beta-version-album-alert" class="alert success-alert my-modal hide">
+        <button id="button-warning" type="button" class="close" onClick="hideBox('#beta-version-album-alert')">x</button>
+        <strong>Beta Version!</strong> Não é possivel adicionar mais fotografias ao álbum.
+         <button id="success-button"type="button" class="btn btn-warning" onClick="hideBox('#beta-version-album-alert')">OK</button>
+      </div>
+
+      <!-- Alerta BetaVersion -->
+      <div id="beta-version-organize-alert" class="alert success-alert my-modal hide">
+        <button id="button-warning" type="button" class="close" onClick="hideBox('#beta-version-organize-alert')">x</button>
+        <strong>Beta Version!</strong> Não é possivel organizar o menu álbuns.
+         <button id="success-button"type="button" class="btn btn-warning" onClick="hideBox('#beta-version-organize-alert')">OK</button>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <!-- Barra de Menus Vertical -->
+          <section class="left-bar">
+            <div class="span2" data-toggle="buttons-radio">
+              <ul class="nav nav-tabs">
+                <a href="#" onClick="menu('photos'), changeButtonColor('photosB')">
+                  <button id="photosB" class="btn btn-primary photos-button" type="button">Fotografias</button>
+                </a>
+              </ul>
+
+              <ul class="nav nav-tabs"> 
+                <a href="#" onClick="menu('albuns'), changeButtonColor('albunsB')">
+                  <button id="albunsB" class="btn btn-primary albuns-button" type="button">Álbuns
+                  </button>
+                </a>
+              </ul>
+              
+              <ul class="nav nav-tabs">
+                <a href="#" onClick="menu('animations'), changeButtonColor('animationsB')">
+                  <button id="animationsB" class="btn btn-primary animations-button" type="button">Animações</button>
+                </a>
+              </ul>
+            
+              <ul class="nav nav-tabs">
+                <a href="#" onClick="menu('postcards'), changeButtonColor('postcardsB')">
+                  <button id="postcardsB" class="btn btn-primary postcards-button" type="button">Postais</button>
+                </a>
+              </ul>
+
+              <ul class="nav nav-tabs">
+                <a href="#" onClick="menu('friends'), changeButtonColor('friendsB')">
+                  <button id="friendsB" class="btn btn-primary friends-button" type="button">Amigos</button>
+                </a>
+              </ul>
+
+              <ul class="nav nav-tabs">
+                <a href="#" onClick="menu('shares'), changeButtonColor('sharesB')">
+                  <button id="sharesB" class="btn btn-primary shares-button" type="button">Partilhas</button>
+                </a>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Barra Horizontal: Fotografias -->
+          <section class="right-bar" onClick="">
+
+            <div class="span4 offset4">
+             
+              <div class="iframe-spec">
+                
+                <ul class="breadcrumb">
+                </ul>
+
+                <div class="pagination-holder clearfix">
+                  <div id="my-pagination" class="pag dark-theme">
+               <!--      <a href="#" class="page-1st page-link current" onClick="processChangePageReq('page-1st')">1</a>
+                    <a href="#" class="page-2nd page-link" onClick="processChangePageReq('page-2nd')">2</a> -->
+                  </div>
+                </div>
+
+                <div class="image-box">
+                </div>
+
+                <div class="i1st-image-caret-button btn-group dropdown hide">
+                  <button class="btn btn-mini dropdown-toggle" onClick="processSingleClick('i1st-image')"data-toggle="dropdown">
+                    <span class="caret"></span>
+                  </button>
+
+                  <ul class="dropdown-menu pull-right">
+                    <li>
+                      <a href="#" onClick="processEnterReq('i1st-image')">Entrar</a>
+                    </li> 
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Alterar Data</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="processChangeDescriptionReq()">Alterar Descrição</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Alterar Título</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Remover</a>
+                    </li> 
+                  </ul> 
+                </div>
+
+                <div class="i2nd-image-caret-button btn-group dropdown hide">
+                  <button class="btn btn-mini dropdown-toggle" onClick="processSingleClick('i2nd-image')"data-toggle="dropdown">
+                    <span class="caret"></span>
+                  </button>
+
+                  <ul class="dropdown-menu pull-right">
+                    <li>
+                      <a href="#" onClick="processEnterReq('i2nd-image')">Entrar</a>
+                    </li> 
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Alterar Data</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="processChangeDescriptionReq()">Alterar Descrição</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Alterar Título</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Remover</a>
+                    </li> 
+                  </ul> 
+                </div>
+
+                <div class="i3rd-image-caret-button btn-group dropup hide">
+                  <button class="btn btn-mini dropdown-toggle" onClick="processSingleClick('i3rd-image')"data-toggle="dropdown">
+                    <span class="caret"></span>
+                  </button>
+
+                  <ul class="dropdown-menu pull-right">
+                    <li>
+                      <a href="#" onClick="processEnterReq('i3rd-image')">Entrar</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Alterar Data</a>
+                    </li> 
+                    <li>
+                      <a href="#" onClick="processChangeDescriptionReq()" >Alterar Descrição</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Alterar Título</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Remover</a>
+                    </li> 
+                  </ul> 
+                </div>
+
+                <div class="i4th-image-caret-button btn-group dropup hide">
+                  <button class="btn btn-mini dropdown-toggle" onClick="processSingleClick('i4th-image')"data-toggle="dropdown">
+                    <span class="caret"></span>
+                  </button>
+
+                  <ul class="dropdown-menu pull-right">
+                    <li>
+                      <a href="#" onClick="processEnterReq('i4th-image')">Entrar</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Alterar Data</a>
+                    </li> 
+                    <li>
+                      <a href="#" onclick="processChangeDescriptionReq()">Alterar Descrição</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Alterar Título</a>
+                    </li>
+                    <li>
+                      <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Remover</a>
+                    </li> 
+                  </ul> 
+                </div>
+
+                <div id="main" class="sidebar-at-right">
+                  <div id="sidebar">
+                    <button type="button" class="close" onClick="hideSidebar(), changeInfoStatus()">×</button>
+                    <p class="informationTitle">Informações</p>
+                    <div class="divider"></div>
+                    <p class="sidebar-title"></p>
+                    <p class="sidebar-date"></p>
+                    <div class="rating">
+                      <span>☆</span>
+                      <span>☆</span>
+                      <span>☆</span>
+                      <span>☆</span>
+                      <span>☆</span>
+                    </div>
+                    <div class="content-form">
+                      <div class="formDesc" contenteditable="true" onfocus="">
+                      </div>
+                      <div class="btt-pos1">
+                        <input type="button" id="myButton" onclick="buttonClick()" value="Guardar">
+                      </div>
+                    </div>
+                    <p class="sidebar-format">Formato: JPEG</p>
+                    <p class="sidebar-size">Tamanho: 2,9Mb</p>
+                  </div>
+                </div> 
+              </div>
+
+              <!--- Texto de todos os botões -->
+              <div>
+                <p class="add-button-text"> Adicionar </p>
+                <p class="edit-button-text"> Editar </p>
+                <p class="organize-button-text"> Organizar </p>
+                <p class="share-button-text"> Partilhar </p>
+                <p class="info-button-text"> Info </p>
+                <p class="help-button-text"> Ajuda </p>
+                <p class="exit-button-text"> Sair </p>
+              </div>
+
+              <!-- Botão Adicionar -->           
+              <div class="btn-group add-button dropup">
+                <button class="btn btn-size dropdown-toggle" data-toggle="dropdown">
+                  <span class="icon-plus"></span>
+                </button>
+
+                <ul class="dropdown-menu" role="menu">
+
+                  <li class="">
+                    <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Amigo</a>
+                  </li>
+
+                  <li class="">
+                    <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Álbum</a>
+                  </li>
+
+                  <li class="animations dropdown-submenu">
+                    <a href="#" >Animação</a>
+                    <ul class="dropdown-menu">
+                      <li class="">
+                        <a onClick="processAnimation('Rain')" href="#" data-toggle="modal">Chuva</a>
+                      </li>
+
+                      <li>
+                        <!-- Abre a lista para selecionar álbuns/fotografias -->
+                        <a onClick="processAnimation('Lightning')" href="#" data-toggle="modal">Relâmpago</a>
+                      </li>
+
+                      <li class="">
+                        <a onClick="processAnimation('Snow')" href="#" data-toggle="modal">Neve</a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li class="photo">
+                    <a onClick="showModal('#my-photos-modal')" href="#" data-toggle="modal">Fotografia</a>
+                  </li>
+
+                  <li class="photo-album">
+                    <a href="#" onClick="processAddPhotoToAlbumReq()" data-toggle="modal">Fotografia ao álbum</a> 
+                  </li>
+
+                  <li>
+                    <a onClick="processPostcardReq()" href="#" data-toggle="modal">Postal</a> 
+                  </li>
+                </ul>
+              </div>
+
+              <!-- Botão Editar -->
+              <div class="btn-group edit-button dropup">
+                <button class="btn btn-size dropdown-toggle disabled" data-toggle="dropdown">
+                  <span class="icon-pencil"></span>
+                </button>
+
+                <ul class="dropdown-menu" role="menu">
+                  <li class="">
+                    <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Ajustes</a> 
+                  </li>
+
+                  <li class="">
+                    <a href="#" onClick="$('#'+'my-warning-notWorking').show();">Correcções</a>
+                  </li>
+
+                  <li class="dropdown-submenu">
+                    <a href="#">Efeitos</a>
+                    <ul class="dropdown-menu">
+                      <li class="">  
+                        <a tabindex="-1" href="#" onclick="processEdition('Comics')">Banda Desenhada</a>
+                      </li>
+
+                      <li class="black-white">  
+                        <a href="#" onclick="processEdition('B&W')">Preto e Branco</a>
+                      </li>
+
+                      <li class="">  
+                        <a href="#" onclick="processEdition('Sepia')">Sépia</a>
+                      </li>
+
+                      <li class="">  
+                        <a href="#" onclick="processEdition('RaioX')">Raio-X</a>
+                      </li>
+											
+											
+                    </ul>
+                  </li>
+									<!-- Alterado -->
+											<li class="">  
+                        <a href="#" onclick="processEdition('Remove')">Repor original</a>
+                      </li>
+                </ul>
+              </div>
+
+              <!-- Botão Organizar -->
+              <div class="btn-group organize-button dropup">
+                <button class="btn btn-size dropdown-toggle disabled" data-toggle="dropdown">
+                  <span class="icon-th-large"></span>
+                </button>
+
+                <ul class="dropdown-menu" role="menu">
+                  <li class="name-ascendent">  
+                    <a href="#" onClick="executeOrganizeName('AZ')">Por Nome A-Z </a>
+                  </li>
+
+                  <li class="name-descendent">  
+                    <a href="#" onClick="executeOrganizeName('ZA')">Por Nome Z-A </a>
+                  </li>
+                </ul>
+              </div>
+      
+              <!-- Botão Partilhar -->
+              <div class="share-button">
+                <button class="btn btn-size disabled" onClick="processShareReq()" data-toggle="modal">
+                  <span class="icon-retweet"></span>
+                </button>
+              </div>
+
+              <!-- Botão Informações -->
+              <div class="info-button">
+                <button class="btn btn-size disabled" onClick="processInfoReq()" data-toggle="button">
+                  <span class="icon-info-sign"></span>
+                </button>
+              </div>
+      
+              <!-- Botão Ajuda -->
+              <div class="help-button">
+                <button class="btn btn-size" onClick="processHelpReq('show')">
+                  <span class="icon-question-sign"></span>
+                </button>
+              </div>
+
+              <!-- Botão Sair -->
+              <div class="exit-button">
+                <button class="btn btn-size" onClick="executeExitReq('my-alert-exit','show')">
+                  <span class="icon-off"></span>
+                </button>
+              </div>
+
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <!--Keyboard Virtual-->
+      <div id="keyboard" class="label fade in">
+        <div id="row0">
+          <input name="1" type="button" class="badge badge-inverse" value="1" />
+          <input name="2" type="button" class="badge badge-inverse" value="2" />
+          <input name="3" type="button" class="badge badge-inverse" value="3" />
+          <input name="4" type="button" class="badge badge-inverse" value="4" />
+          <input name="5" type="button" class="badge badge-inverse" value="5" />
+          <input name="6" type="button" class="badge badge-inverse" value="6" />
+          <input name="7" type="button" class="badge badge-inverse" value="7" />
+          <input name="8" type="button" class="badge badge-inverse" value="8" />
+          <input name="9" type="button" class="badge badge-inverse" value="9" />
+          <input name="0" type="button" class="badge badge-inverse" value="0" />
+          <input name="-" type="button" class="badge badge-inverse" value="-" />
+          <input name="backspace" type="button" class="badge badge-inverse" value="Backspace" />
+          <a id="close" type="button" class="badge badge-important"> Sair <a/>
+        </div>
+        
+        <div id="row0_shift">
+          <input name="exc" type="button" class="badge badge-inverse" value="!" />
+          <input name="at" type="button" class="badge badge-inverse" value="@" />
+          <input name="hash" type="button" class="badge badge-inverse" value="#" />
+          <input name="dollar" type="button" class="badge badge-inverse" value="$" />
+          <input name="percent" type="button" class="badge badge-inverse" value="%" />
+          <input name="caret" type="button" class="badge badge-inverse" value="^" />
+          <input name="ampersand" type="button" class="badge badge-inverse" value="&" />
+          <input name="asterik" type="button" class="badge badge-inverse" value="*" />
+          <input name="openbracket" type="button" class="badge badge-inverse" value="(" />
+          <input name="closebracket" type="button" class="badge badge-inverse" value=")" />
+          <input name="underscore" type="button" class="badge badge-inverse" value="_" />
+          <input name="backspace" type="button" class="badge badge-inverse" value="Backspace" />
+        </div>
+        
+        <div id="row1">
+          <input name="q" type="button"  class="badge badge-inverse" value="q" />
+          <input name="w" type="button" class="badge badge-inverse" value="w" />
+          <input name="e" type="button" class="badge badge-inverse" value="e" />
+          <input name="r" type="button" class="badge badge-inverse" value="r" />
+          <input name="t" type="button" class="badge badge-inverse" value="t" />
+          <input name="y" type="button" class="badge badge-inverse" value="y" />
+          <input name="u" type="button" class="badge badge-inverse" value="u" />
+          <input name="i" type="button" class="badge badge-inverse" value="i" />
+          <input name="o" type="button" class="badge badge-inverse" value="o" />
+          <input name="p" type="button" class="badge badge-inverse" value="p" />
+        </div>
+        
+        <div id="row1_shift">
+          <input name="Q" type="button" class="badge badge-inverse" value="Q" />
+          <input name="W" type="button" class="badge badge-inverse" value="W" />
+          <input name="E" type="button" class="badge badge-inverse" value="E" />
+          <input name="R" type="button" class="badge badge-inverse" value="R" />
+          <input name="T" type="button" class="badge badge-inverse" value="T" />
+          <input name="Y" type="button" class="badge badge-inverse" value="Y" />
+          <input name="U" type="button" class="badge badge-inverse" value="U" />
+          <input name="I" type="button" class="badge badge-inverse" value="I" />
+          <input name="O" type="button" class="badge badge-inverse" value="O" />
+          <input name="P" type="button" class="badge badge-inverse" value="P" />
+        </div>
+        
+        <div id="row2">
+          <input name="a" type="button" class="badge badge-inverse" value="a" />
+          <input name="s" type="button" class="badge badge-inverse" value="s" />
+          <input name="d" type="button" class="badge badge-inverse" value="d" />
+          <input name="f" type="button" class="badge badge-inverse" value="f" />
+          <input name="g" type="button" class="badge badge-inverse" value="g" />
+          <input name="h" type="button" class="badge badge-inverse" value="h" />
+          <input name="j" type="button" class="badge badge-inverse" value="j" />
+          <input name="k" type="button" class="badge badge-inverse" value="k" />
+          <input name="l" type="button" class="badge badge-inverse" value="l" />  
+        </div>
+        
+        <div id="row2_shift">
+          <input name="a" type="button" class="badge badge-inverse" value="A" />
+          <input name="s" type="button" class="badge badge-inverse" value="S" />
+          <input name="d" type="button" class="badge badge-inverse" value="D" />
+          <input name="f" type="button" class="badge badge-inverse" value="F" />
+          <input name="g" type="button" class="badge badge-inverse" value="G" />
+          <input name="h" type="button" class="badge badge-inverse" value="H" />
+          <input name="j" type="button" class="badge badge-inverse" value="J" />
+          <input name="k" type="button" class="badge badge-inverse" value="K" />
+          <input name="l" type="button" class="badge badge-inverse" value="L" />
+        </div>
+        
+        <div id="row3">
+          <input name="Shift" type="button" class="badge badge-inverse" value="Shift" id="shift" />
+          <input name="z" type="button" class="badge badge-inverse" value="z" />
+          <input name="x" type="button" class="badge badge-inverse" value="x" />
+          <input name="c" type="button" class="badge badge-inverse" value="c" />
+          <input name="v" type="button" class="badge badge-inverse" value="v" />
+          <input name="b" type="button" class="badge badge-inverse" value="b" />
+          <input name="n" type="button" class="badge badge-inverse" value="n" />
+          <input name="m" type="button" class="badge badge-inverse" value="m" />
+          <input name="," type="button" class="badge badge-inverse" value="," />
+          <input name="." type="button" class="badge badge-inverse" value="." />
+        </div>
+        
+        <div id="row3_shift">
+          <input name="Shift" type="button" class="badge badge-inverse" value="Shift" id="shifton" />
+          <input name="Z" type="button" class="badge badge-inverse" value="Z" />
+          <input name="X" type="button" class="badge badge-inverse" value="X" />
+          <input name="C" type="button" class="badge badge-inverse" value="C" />
+          <input name="V" type="button" class="badge badge-inverse" value="V" />
+          <input name="B" type="button" class="badge badge-inverse" value="B" />
+          <input name="N" type="button" class="badge badge-inverse" value="N" />
+          <input name="M" type="button" class="badge badge-inverse" value="M" />
+          <input name="lt" type="button" class="badge badge-inverse" value="&lt;" />
+          <input name="gt" type="button" class="badge badge-inverse" value="&gt;" />
+        </div>
+        
+        <div id="spacebar">
+          <input name="spacebar" type="button" class="badge badge-inverse" value=" " />
+        </div>
+      </div>
+
+    </section>
+
+    <div class="exitPic">
+      <a id="exitPic" href="#">
+        <img src="images/exit.jpg"></img>
+      </a>
+    </div>
+
+    <div class="helpImage hide">
+      <img src="images/help.jpg"></img>
+      <button type="button" class="btn btn-inverse exitHelpButton" onClick="processHelpReq('hide')">Sair</button>
+    </div>
+
+    <div class="helpImage2 hide">
+      <img src="images/help2.jpg"></img>
+      <button type="button" class="btn btn-inverse exitHelpButton" onClick="processHelpReq('hide')">Sair</button>
+    </div>
+
+  </body>
+
+</html>

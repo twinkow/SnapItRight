@@ -1,0 +1,50 @@
+/*CSS do Keyboard Virtual*/
+
+#keyboard { 
+	position: absolute;
+		left: 2.8cm;
+		top: 5.7cm;
+	display: none;
+	border: 2px solid #ccc; 
+	padding: 4px;
+}
+
+#spacebar input { 
+	width: 180px; 
+	height: 20px;
+	margin: 0 auto; 
+	margin-left: 130px; 
+}
+
+#shift, #shifton { 
+	width: 50px; 
+	text-align: left; 
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+#row0_shift, #row1_shift, #row2_shift, #row3_shift {
+	display: none;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+#row0, #row0_shift {
+	padding-left: 8px; 
+}
+
+#row1, #row1_shift { 
+	padding-left: 60px; 
+}
+
+#row2, #row2_shift { 
+	padding-left: 70px; 
+}
+
+#row3, #row3_shift { 
+	padding-left: 30px; 
+}
+
+#shifton { 
+	border-left: 3px solid #000; 
+	border-top: 3px solid #000; 
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+}

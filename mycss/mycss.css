@@ -1,0 +1,159 @@
+.titleApp {
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+	font-size: 400%;
+	position: absolute;
+		left: 3.8cm;
+}
+
+.total-window {
+	height: 9cm;
+	width: 16cm;
+	position:absolute;
+		left:5cm;
+		top:3cm;
+	background-color: #f5f5f5;
+}
+
+.iframe-spec {
+	width: 13.2cm;
+	height: 7.5cm;
+	position: absolute;
+		left: 2.80cm;
+		top:0cm;
+}
+
+.image-box {
+	position: absolute;
+		top:0.8cm;
+	width: 13.2cm;
+	height: 6.8cm;	
+}
+
+.image-selected {
+  border-style: solid;
+  border-color: goldenrod;
+  height: 2.93cm;
+    border-width: 
+  -moz-box-shadow: 3px 3px 4px #000;
+  -webkit-box-shadow: 3px 3px 4px #000;
+  box-shadow: 3px 3px 4px #000;
+}
+
+.i1st-image{
+	position: absolute;
+		top:0cm;
+		left:1.5cm;
+	width: 4.4cm;
+}
+
+.i2nd-image{
+	position: absolute;
+		top:0cm;
+		left:7.1cm;
+	width: 4.4cm;
+}
+
+.i3rd-image{
+	position: absolute;
+		top:3.5cm;
+		left:1.5cm;
+	width: 4.4cm;
+}	
+
+.i4th-image{
+	position: absolute;
+		top:3.5cm;
+		left:7.1cm;
+	width: 4.4cm;
+}	
+
+.my-modal {
+  top: 50%;
+  left: 50%;
+  z-index: 1050;
+  width: 560px;
+  margin: -250px 0 0 -280px;
+  background-color: #ffffff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  *border: 1px solid #999;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  outline: none;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding-box;
+          background-clip: padding-box;
+}
+
+.alert {
+	width: 5cm;
+	height: 3.5cm;
+	position: absolute;
+		left: 13cm;
+		top: 9.5cm;
+		font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+.success-alert {
+	width: 5cm;
+	height: 2cm;
+	position: absolute;
+		left: 13cm;
+		top: 9.5cm;
+		font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+#success-button{
+	position: absolute;
+		left: 4cm;
+		top:1.5cm;
+		font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+.title {
+	text-align:center;
+	font-size: 0.3cm;
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+.pag {
+	position: absolute;
+		left:5.8cm;
+		top: 0.1cm;
+		font-family:"Trebuchet MS", Helvetica, sans-serif;
+}
+
+.exitPic{
+	position: absolute;
+	left: 5cm;
+	top: 3.01cm;
+}
+
+.breadcrumb, 
+.dropdown-menu,
+.beta-version-photo-alert,
+.beta-version-album-alert,
+#my-modalLabel, 
+#my-alert-edition, 
+#my-success-alert-edition, 
+#my-success-alert-animations, 
+#my-alert-animations,
+#my-success-alert-postcard,
+#my-alert-postcard,
+#my-success-alert-share,
+#my-alert-share,
+#my-success-alert-photolist,
+#my-alert-photolist,
+#my-success-alert-albumlist,
+#my-alert-albumList,
+#my-success-alert-importphoto,
+#my-alert-importphoto,
+#my-warning-alert-albumlist,
+#my-alert-exit,
+#my-warning-notWorking {
+	font-family:"Trebuchet MS", Helvetica, sans-serif;
+}

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <title>SnapItRight!</title>
+    <html lang="pt-pt">
+    <meta charset="utf-8" />
+    <!-- Bootstrap -->
+
+    <!-- Le styles -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="assets/css/docs.css" rel="stylesheet">
+    <link href="assets/js/google-code-prettify/prettify.css" rel="stylesheet">
+    <link href="assets/css/mycss.css" rel="stylesheet">
+
+              <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/google-code-prettify/prettify.js"></script>
+    <script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script>
+    <script src="assets/js/bootstrap-affix.js"></script>
+    <script src="assets/js/application.js"></script>
+    
+  </head>
+
+  <body>
+    <h1 class="title">-- Aplicação SnapItRight -- </h1>
+
+     <section class="total-window">
+
+      <div class="container-fluid">
+        <div class="row-fluid">
+          
+          <!-- Barra de Menus Vertical -->
+          <section class="leftbar">
+            <div class="span2" data-toggle="buttons-radio">
+              
+              <ul class="nav nav-tabs">
+                <button class="btn btn-info photos-button" type="button">Fotografias</button>
+              </ul>
+
+              <ul class="nav nav-tabs">  
+                <button class="btn btn-info albunsButton" type="button">Álbuns</button>
+              </ul>
+              
+              <ul class="nav nav-tabs">
+                <button class="btn btn-info animationsButton" type="button">Animações</button>
+              </ul>
+              
+              <ul class="nav nav-tabs">
+                <button class="btn btn-info postcardsButton" type="button">Postais</button>
+              </ul>
+
+              <ul class="nav nav-tabs">
+                <button class="btn btn-info friendsButton" type="button">Amigos</button>
+              </ul>
+
+              <ul class="nav nav-tabs">
+                <button class="btn btn-info sharesButton" type="button">Partilhas</button>
+              </ul>
+
+            </div>
+          </section>
+
+          <section class="rightbar">
+            <div class="span4 offset4">
+
+              <!--- Texto de todos os botões -->
+              <div class="buttonText">
+                <p class="addButtonText"> Adicionar </p>
+                <p class="editButtonText"> Editar </p>
+                <p class="shareButtonText"> Partilhar </p>
+                <p class="helpButtonText"> Ajuda </p>
+                <p class="exitButtonText"> Sair </p>
+              </div>
+
+              <!--- Fotos da primeira página -->
+              <div class="photoPresent">
+
+                <div class="firstImage">
+                  <img src="images/madrid.jpg" class="img-polaroid">
+                </div>
+
+                <div class="secondImage">
+                  <img src="images/dusseldorf.jpg" class="img-polaroid">
+                </div>
+
+                <div class="thirdImage">
+                  <img src="images/madrid.jpg" class="img-polaroid">
+                </div>
+
+                <div class="fourthImage">
+                  <img src="images/dusseldorf.jpg" class="img-polaroid">
+                </div>
+
+              </div>
+
+              <!-- Botão Adicionar -->
+              <div class="btn-group addButton dropup">
+                <button class="btn dropdown-toggle" data-toggle="dropdown">
+                  <span class="icon-plus"></span>
+                </button>
+
+                <ul class="dropdown-menu" role="menu">
+
+                  <li>
+                    <a tabindex="-1" href="#">Fotografia</a> 
+                  </li>
+
+                  <li>
+                    <a tabindex="-1" href="#">Álbum</a>
+                  </li>
+
+                  <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">Animação</a>
+                    <ul class="dropdown-menu">
+                      <li>  
+                        <a tabindex="-1" href="#">Chuva</a>
+                      </li>
+
+                      <li>  
+                        <a tabindex="-1" href="#">Relâmpago</a>
+                      </li>
+
+                      <li>  
+                        <a tabindex="-1" href="#">Neve</a>
+                      </li>
+                    </ul>
+                  </li>
+
+                  <li>
+                    <a tabindex="-1" href="#">Postal</a> 
+                  </li>
+
+                </ul>
+              </div>
+
+
+              <!-- Botão Partilhar -->
+              <div class="shareButton">
+                <a href="#" class="btn">
+                  <i class="icon-retweet"></i>
+                </a>
+              </div>
+
+              <!-- Botão Ajuda -->
+              <div class="helpButton">
+                <a href="#" class="btn">
+                  <i class="icon-question-sign"></i>
+                </a>
+              </div>
+
+              <!-- Botão Sair -->
+              <div class="exitButton">
+                <a href="#" class="btn"> 
+                  <i class="icon-off"></i>
+                </a>
+              </div>
+
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </section> 
+
+  </body>
+</html>
+

@@ -1,0 +1,101 @@
+#sidebar {
+    border: 1px solid;
+    background-color: #DEF;
+    border-color: #BCD;
+    display: none;
+    position: absolute;
+        left: 9.1cm;
+        top: 0cm; 
+    height: 7.8cm;
+}
+ 
+.use-sidebar #sidebar {
+    display: block;
+    width: 30%;
+}
+ 
+.sidebar-at-left #sidebar {margin-right: 1%;}
+.sidebar-at-right #sidebar {margin-left: 1%;}
+ 
+.use-sidebar.sidebar-at-right #sidebar{float: right;}
+.use-sidebar.sidebar-at-left #sidebar {float: left;}
+
+.formDesc1 {
+    position: absolute;
+        left: 2cm;
+        top:10cm;
+}
+
+.formDesc{
+    background-color: #ffffff;
+    position: absolute;
+        left:0.2cm;
+        top: 3cm;
+}
+
+.btt-pos1 {
+    position: absolute;
+        left:2cm;
+        top:4.2cm;
+}
+
+
+.btt-pos2 {
+    position: absolute;
+    left: 0.2cm;
+    top: 4.2cm;
+}
+
+.informationTitle{
+    width: 3.77cm;
+    height: 0.5cm;
+    position: absolute;
+        top:0cm; 
+    font-size: 16px;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.sidebar-title{
+    width: 3.77cm;
+    height: 0.5cm;
+    position: absolute;
+        top:0.5cm; 
+    font-size: 18px;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.sidebar-date{
+    width: 3.77cm;
+    height: 0.5cm;
+    position: absolute;
+        top:1cm; 
+    font-size: 14px;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.sidebar-format {
+    width: 3.77cm;
+    height: 0.5cm;
+    position: absolute;
+        top:5cm; 
+    font-size: 14px;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.sidebar-size {
+    width: 3.77cm;
+    height: 0.5cm;
+    position: absolute;
+        top:5.5cm; 
+    font-size: 14px;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.close {
+    color: red !important;
+}
